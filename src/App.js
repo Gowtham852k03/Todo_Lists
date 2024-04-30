@@ -6,7 +6,7 @@ import Content from "./Content";
 import "./index.css"
 import Footer from "./Footer";
 function App() {
-  const storeItem = localStorage.getItem("selectedTheme");
+
   const [items, setItems] = useState(JSON.parse(localStorage.getItem('todolist'))
 
   );

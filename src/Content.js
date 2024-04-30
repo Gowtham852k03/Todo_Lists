@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import { FaTrash } from "react-icons/fa";
 
 const Content = ({ items, handleCheck, deleteItem }) => {

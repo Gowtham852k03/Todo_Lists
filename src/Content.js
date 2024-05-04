@@ -1,37 +1,20 @@
+import React from 'react';
 
-import { FaTrash } from "react-icons/fa";
-
-const Content = ({ items, handleCheck, deleteItem }) => {
+const Content = ({ weathericon, error }) => {
+    const defaultCity = 'New York';
+    const cityName = error ? error : defaultCity;
 
     return (
-        <main>
-            {(items.length) ? (
-                <ul className='lists'>
-                    {items.map((item) => (
-                        <li className='item' key={item.id}>
-                            <input
-                                type="checkbox"
-                                checked={item.checked}
-                                onChange={() => handleCheck(item.id)} />
-
-                            <label
-                                style={(item.checked) ? { textDecoration: 'line-through' } : null}
-                                onDoubleClick={() => handleCheck(item.id)}> {item.item}
-                            </label>
-                            <FaTrash
-                                role="button"
-                                tabIndex="0"
-                                aria-label={`Delete ${item.item}`}
-                                onClick={() => deleteItem(item.id)}
-                            />
-                        </li>
-                    ))}
-                </ul>) : (
-                <h3 style={{ fontSize: 32 }}>YOUR LIST IS EMPTY</h3>
-            )}
+        <main >
+            <div className='bcolor'>
+                <div className='weather'>
+                    <img src={weathericon} alt="weather-icon" className='weather-icon' />
+                    <h1 className='temp'>22°C</h1>
+                    <h2 className='city'>{cityName}</h2>
+                </div>
+            </div>
         </main>
-    )
+    );
 }
 
-
-export default Content
+export default Content;
